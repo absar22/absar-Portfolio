@@ -3,32 +3,29 @@
 import { motion } from 'framer-motion'
 
 const skills = {
-  frontend: [
-    'React',
-    'Next.js',
-    'Astro',
-    'TypeScript',
-    'JavaScript',
-    'Apollo Client',
-    'TanStack Query',
-    'Zustand',
-    'Redux',
-    'HTML5',
-    'CSS3',
-    'Tailwind CSS',
-    'Material UI',
-    'Shadcn UI',
-    'Framer Motion',
-    'GSAP',
+  languages: [
+    'JavaScript (ES6+)', 'TypeScript', 'Node.js', 'HTML5', 'CSS3'
   ],
-  backend: ['Node.js', 'Express', 'NestJS', 'GraphQL', 'REST APIs', 'Socket.IO'],
-  database: ['PostgreSQL', 'Redis', 'Prisma', 'MySQL'],
-  devops: ['Docker', 'Git', 'CI/CD'],
+  frontend: [
+    'Next.js 14', 'React', 'Redux Toolkit', 'TailwindCSS'
+  ],
+  backend: [
+    'Express.js', 'EJS', 'REST APIs', 'MVC Architecture'
+  ],
+  databases: [
+    'MongoDB', 'PostgreSQL (basic)'
+  ],
+  tools: [
+    'Git', 'GitHub', 'VS Code', 'Netlify', 'Render', 'Postman', 'Chrome DevTools'
+  ],
+  concepts: [
+    'CRUD Operations', 'Async Programming', 'WebSockets', 'Agile (SCRUM)'
+  ]
 }
 
 export const Skills = () => {
   return (
-    <section id="skills" className="py-20">
+    <section id="skills" className="py-20 border-t border-white/5">
       <div className="section-shell">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -38,7 +35,7 @@ export const Skills = () => {
         >
           <h2 className="section-title">Skills</h2>
 
-          <div className="mt-10 grid gap-6 md:grid-cols-2 xl:grid-cols-4">
+          <div className="mt-10 grid gap-8 md:grid-cols-2 xl:grid-cols-4">
             {Object.entries(skills).map(([category, items], idx) => (
               <motion.div
                 key={category}
@@ -46,7 +43,6 @@ export const Skills = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ delay: idx * 0.1 }}
                 viewport={{ once: true }}
-                className="panel p-6"
               >
                 <h3 className="text-xl font-semibold capitalize text-white">{category}</h3>
                 <div className="mt-4 flex flex-wrap gap-2">

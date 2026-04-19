@@ -4,32 +4,33 @@ import { motion } from 'framer-motion'
 
 const experiences = [
   {
-    marker: 'T',
-    company: 'Taeyen',
-    period: 'August 2025 - February 2026',
-    role: 'Front-end Developer',
-    duration: '6 mos',
+    company: 'Awwaltech',
+    period: 'November 2025 - April 2026',
+    role: 'Front-end Developer Intern',
+    duration: '6 months',
     summary:
-      'Engineered a high-performance Client Dashboard and Agency module using Next.js, optimizing the architecture with App Router and Server Components to achieve a 30% reduction in load times. Established scalable coding standards and a modular project structure that minimized technical debt and streamlined team collaboration. Integrated robust bug fixes and stable UI components, resulting in a 40% increase in platform stability.',
-    extra:
-      'These architectural enhancements significantly improved long-term maintainability and reduced developer onboarding time across the codebase.',
+  'Engineered scalable web applications using Next.js 14 and TypeScript, focusing on performance and maintainability. Implemented global state management with Redux Toolkit and integrated REST APIs with robust loading and error handling strategies. Built real-time features using WebSockets and collaborated closely with backend teams to design efficient, scalable API flows. Enhanced application performance through reusable component architecture and optimized rendering patterns.',
+
+extra:
+  'Contributed to improving developer experience by enforcing clean code practices and modular design. Actively participated in Agile workflows, ensuring timely delivery of features while maintaining high code quality and consistency across the codebase.',
+      
   },
   {
-    marker: 'N',
-    company: 'NinjaBages',
-    period: 'June 2024 - October 2024',
-    role: 'Front-end Developer',
-    duration: '4 mos',
-    summary:
-      'Spearheaded the development and optimization of static HTML pages using Tailwind CSS, crafting scalable templates for a pre-existing page builder. Integrated dynamic UI components with rigorous testing to ensure compatibility within the builder. Boosted page load speed by 20%, enhancing overall responsiveness.',
-    extra:
-      'Improved template customization features, driving a 15% increase in user satisfaction based on platform feedback.',
-  },
+    company: '#100Devs',
+    period: 'June 2022 - October 2025',
+    role: 'Software Engineer',
+    duration: '3 years and 4 months',
+     summary:
+    'Spearheaded the development and optimization of static HTML pages using Tailwind CSS, crafting scalable templates for a pre-existing page builder. Integrated dynamic UI components with rigorous testing to ensure compatibility within the builder. Boosted page load speed by 20%, enhancing overall responsiveness. Built full-stack applications implementing complete CRUD functionality with REST APIs. Designed backend routes, controllers, and database schemas following MVC principles. Implemented authentication flows and protected routes using session-based logic. Worked in an Agile environment delivering sprint-based features with version control best practices.',
+  extra:
+    'Improved template customization features, driving a 15% increase in user satisfaction based on platform feedback.',
+}
+
 ]
 
 export const Experience = () => {
   return (
-    <section id="experience" className="py-20">
+    <section id="experience" className="py-20 border-t border-white/5">
       <div className="section-shell">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -39,7 +40,7 @@ export const Experience = () => {
         >
           <h2 className="section-title">Work Experience</h2>
 
-          <div className="mt-10 space-y-6">
+          <div className="mt-10 space-y-12">
             {experiences.map((exp, idx) => (
               <motion.article
                 key={exp.company}
@@ -47,13 +48,12 @@ export const Experience = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ delay: idx * 0.1 }}
                 viewport={{ once: true }}
-                className="panel p-6 md:p-8"
+                className="border-b border-white/5 pb-10 last:border-0"
               >
                 <div className="flex flex-col gap-3 md:flex-row md:items-start md:justify-between">
                   <div>
-                    <p className="text-xs uppercase tracking-[0.3em] text-zinc-500">{exp.marker}</p>
-                    <h3 className="mt-3 text-2xl font-semibold text-white">{exp.company}</h3>
-                    <p className="mt-2 text-zinc-300">{exp.role}</p>
+                    <h3 className="text-2xl font-semibold text-white">{exp.company}</h3>
+                    <p className="mt-1 text-zinc-300">{exp.role}</p>
                   </div>
 
                   <div className="text-sm text-zinc-400 md:text-right">

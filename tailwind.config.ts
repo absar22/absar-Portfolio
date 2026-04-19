@@ -1,4 +1,3 @@
-// tailwind.config.ts
 import type { Config } from 'tailwindcss'
 
 const config: Config = {
@@ -10,6 +9,15 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      colors: {
+        background: 'hsl(var(--background))',
+        foreground: 'hsl(var(--foreground))',
+        accent: {
+          DEFAULT: 'hsl(var(--accent))',
+          foreground: 'hsl(var(--accent-foreground))',
+        },
+        border: 'hsl(var(--border))',
+      },
       animation: {
         'fade-in': 'fadeIn 0.5s ease-in-out',
         'slide-up': 'slideUp 0.5s ease-out',

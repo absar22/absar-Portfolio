@@ -3,8 +3,24 @@
 @tailwind utilities;
 
 @layer base {
+  /* Light mode (default) */
   :root {
+    color-scheme: light;
+    --background: 0 0% 100%;
+    --foreground: 0 0% 0%; /* Black text */
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 0 0% 0%; /* Black text for accents */
+    --border: 214.3 31.8% 91.4%;
+  }
+
+  /* Dark mode */
+  .dark {
     color-scheme: dark;
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%; /* White text */
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%; /* White text for accents */
+    --border: 217.2 32.6% 17.5%;
   }
 
   * {
@@ -14,38 +30,79 @@
   html {
     @apply bg-zinc-950 text-zinc-100;
   }
-
-  body {
-    @apply min-h-screen bg-[radial-gradient(circle_at_top,_rgba(255,255,255,0.08),_transparent_28%),linear-gradient(180deg,_#101114_0%,_#09090b_55%,_#050506_100%)] text-zinc-100 antialiased;
+  
+  /* Dark mode styles */
+  .dark html {
+    @apply bg-zinc-950 text-zinc-100;
   }
+  
+  /* Light mode styles */
+  html:not(.dark) {
+    @apply bg-white text-black; /* Black text */
+  }
+
   body {
-  @apply min-h-screen text-zinc-100 antialiased;
-
-  background-color: black;
-  background-image: 
-    /* grid lines */
-    linear-gradient(rgba(255,255,255,0.06) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255,255,255,0.06) 1px, transparent 1px),
-
-    /* radial glow */
-    radial-gradient(circle at top, rgba(255,255,255,0.08), transparent 28%),
-
-    /* base gradient */
-    linear-gradient(180deg, #101114 0%, #09090b 55%, #050506 100%);
-
-  background-size: 
-    40px 40px,
-    40px 40px,
-    100% 100%,
-    100% 100%;
-}
+    @apply min-h-screen antialiased;
+  }
+  
+  /* Dark mode body */
+  .dark body {
+    background-color: black;
+    background-image: 
+      linear-gradient(rgba(255,255,255,0.06) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.06) 1px, transparent 1px),
+      radial-gradient(circle at top, rgba(255,255,255,0.08), transparent 28%),
+      linear-gradient(180deg, #101114 0%, #09090b 55%, #050506 100%);
+    background-size: 
+      40px 40px,
+      40px 40px,
+      100% 100%,
+      100% 100%;
+    color: rgb(244, 244, 245);
+  }
+  
+  /* Light mode body */
+  html:not(.dark) body {
+    background-color: #fafafa;
+    background-image: 
+      linear-gradient(rgba(0,0,0,0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(0,0,0,0.03) 1px, transparent 1px),
+      radial-gradient(circle at top, rgba(0,0,0,0.02), transparent 28%),
+      linear-gradient(180deg, #fefefe 0%, #f5f5f5 55%, #eeeeee 100%);
+    background-size: 
+      40px 40px,
+      40px 40px,
+      100% 100%,
+      100% 100%;
+    color: black; /* Black text */
+  }
 
   a {
     @apply transition-colors duration-200;
   }
+  
+  /* Light mode links */
+  html:not(.dark) a {
+    @apply text-black hover:text-zinc-700;
+  }
+  
+  /* Dark mode links */
+  .dark a {
+    @apply text-zinc-300 hover:text-white;
+  }
 
   ::selection {
     @apply bg-white text-zinc-950;
+  }
+  
+  /* Light mode selection */
+  html:not(.dark) ::selection {
+    @apply bg-black text-white;
+  }
+  
+  /* Dark mode selection */
+  .dark ::selection {
+    @apply bg-white text-black;
   }
 }
 
@@ -59,18 +116,70 @@
   }
 
   .section-title {
-    @apply text-3xl font-semibold tracking-tight text-white md:text-4xl;
+    @apply text-3xl font-semibold tracking-tight md:text-4xl;
+  }
+  
+  /* Dark mode section title */
+  .dark .section-title {
+    @apply text-white;
+  }
+  
+  /* Light mode section title */
+  html:not(.dark) .section-title {
+    @apply text-black;
   }
 
   .section-copy {
-    @apply text-sm leading-7 text-zinc-400 md:text-base;
+    @apply text-sm leading-7 md:text-base;
+  }
+  
+  /* Dark mode section copy */
+  .dark .section-copy {
+    @apply text-zinc-400;
+  }
+  
+  /* Light mode section copy */
+  html:not(.dark) .section-copy {
+    @apply text-zinc-700; /* Dark gray for better readability */
   }
 
   .panel {
     @apply rounded-3xl border border-white/10 bg-white/5 shadow-[0_0_0_1px_rgba(255,255,255,0.02),0_24px_80px_rgba(0,0,0,0.35)] backdrop-blur;
   }
+  
+  /* Light mode panel */
+  html:not(.dark) .panel {
+    @apply border-black/10 bg-black/5 shadow-[0_0_0_1px_rgba(0,0,0,0.02),0_24px_80px_rgba(0,0,0,0.1)];
+  }
 
   .chip {
-    @apply inline-flex items-center rounded-full border border-white/10 bg-white/5 px-3 py-1 text-sm text-zinc-300;
+    @apply inline-flex items-center rounded-full border border-white/10 bg-white/5 px-3 py-1 text-sm;
   }
+  
+  /* Dark mode chip */
+  .dark .chip {
+    @apply text-zinc-300;
+  }
+  
+  /* Light mode chip */
+  html:not(.dark) .chip {
+    @apply border-black/10 bg-black/5 text-black;
+  }
+}
+
+/* CSS Variables for the toolbar */
+.bg-background {
+  background-color: hsl(var(--background));
+}
+
+.bg-accent {
+  background-color: hsl(var(--accent));
+}
+
+.text-accent-foreground {
+  color: hsl(var(--accent-foreground));
+}
+
+.bg-border {
+  background-color: hsl(var(--border));
 }

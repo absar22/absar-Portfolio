@@ -6,6 +6,8 @@ import { Education } from '@/components/sections/Education'
 import { Skills } from '@/components/sections/Skills'
 import { Projects } from '@/components/sections/Projects'
 import { Contact } from '@/components/sections/Contact'
+import { Toolbar } from "@/components/sections/Toolbar"
+
 
 export default function Home() {
   return (
@@ -18,6 +20,7 @@ export default function Home() {
       <Skills />
       <Projects />
       <Contact />
+      <Toolbar />
     </main>
   )
 }

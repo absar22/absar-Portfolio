@@ -3,6 +3,9 @@ import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import './globals.css'
 import { cn } from "../lib/Utils"
+import { Toolbar } from '@/components/sections/Toolbar'
+import { ThemeProvider } from '@/components/sections/theme-provider'
+
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter' })
 
@@ -21,7 +24,12 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth">
       <body className={cn(inter.className, 'bg-white dark:bg-gray-950 text-gray-900 dark:text-gray-100')}>
-        {children}
+       
+          <ThemeProvider>
+          {children}
+          <Toolbar />
+        </ThemeProvider>
+  
       </body>
     </html>
   )

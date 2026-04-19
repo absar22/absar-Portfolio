@@ -4,12 +4,20 @@ import { motion } from 'framer-motion'
 
 const education = [
   {
-    school: 'Thebes Academy',
-    degree: 'CS bachelors',
-    period: '2022 - 2026',
-    duration: '4 yrs',
+    school: 'Mewar University, Chittorgarh, Rajasthan',
+    degree: 'Bachelor of Technology in Computer Science and Engineering',
+    period: 'Aug 2021 – May 2024',
+    duration: '2 years 9 months',
     summary:
-      'Focused on core computer science fundamentals while sharpening practical product engineering skills through real-world frontend and full-stack work.',
+      'Built a strong foundation in computer science fundamentals including data structures, algorithms, and software engineering. Gained practical experience through academic projects and hands-on full-stack development work.',
+  },
+  {
+    school: 'Mewar University, Chittorgarh, Rajasthan',
+    degree: 'Diploma in Computer Science and Engineering',
+    period: 'Aug 2017 – May 2020',
+    duration: '2 years 9 months',
+    summary:
+      'Developed core programming skills and understanding of computer systems, databases, and web technologies, forming the base for advanced software development learning.',
   },
 ]
 
