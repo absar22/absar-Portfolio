@@ -1,15 +1,23 @@
+@import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
+  /* CSS Variables for fonts */
+  :root {
+    --font-display: 'Bricolage Grotesque', sans-serif;
+    --font-mono-custom: 'JetBrains Mono', monospace;
+  }
+
   /* Light mode (default) */
   :root {
     color-scheme: light;
     --background: 0 0% 100%;
-    --foreground: 0 0% 0%; /* Black text */
+    --foreground: 0 0% 0%;
     --accent: 210 40% 96.1%;
-    --accent-foreground: 0 0% 0%; /* Black text for accents */
+    --accent-foreground: 0 0% 0%;
     --border: 214.3 31.8% 91.4%;
   }
 
@@ -17,9 +25,9 @@
   .dark {
     color-scheme: dark;
     --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%; /* White text */
+    --foreground: 210 40% 98%;
     --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%; /* White text for accents */
+    --accent-foreground: 210 40% 98%;
     --border: 217.2 32.6% 17.5%;
   }
 
@@ -38,43 +46,51 @@
   
   /* Light mode styles */
   html:not(.dark) {
-    @apply bg-white text-black; /* Black text */
+    @apply bg-white text-black;
   }
 
   body {
     @apply min-h-screen antialiased;
+    font-family: var(--font-display);
+    background-color: #09090f;
+    color: #e4e4f0;
   }
   
   /* Dark mode body */
   .dark body {
-    background-color: black;
-    background-image: 
-      linear-gradient(rgba(255,255,255,0.06) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(255,255,255,0.06) 1px, transparent 1px),
-      radial-gradient(circle at top, rgba(255,255,255,0.08), transparent 28%),
-      linear-gradient(180deg, #101114 0%, #09090b 55%, #050506 100%);
-    background-size: 
-      40px 40px,
-      40px 40px,
-      100% 100%,
-      100% 100%;
-    color: rgb(244, 244, 245);
+    background-color: #09090f;
+    background-image:
+      radial-gradient(ellipse 80% 50% at 50% -10%, rgba(99,102,241,0.08), transparent),
+      linear-gradient(rgba(255,255,255,0.015) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.015) 1px, transparent 1px);
+    background-size: 100% 100%, 80px 80px, 80px 80px;
+    color: #e4e4f0;
   }
   
   /* Light mode body */
   html:not(.dark) body {
     background-color: #fafafa;
-    background-image: 
+    background-image:
+      radial-gradient(ellipse 80% 50% at 50% -10%, rgba(99,102,241,0.04), transparent),
       linear-gradient(rgba(0,0,0,0.03) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(0,0,0,0.03) 1px, transparent 1px),
-      radial-gradient(circle at top, rgba(0,0,0,0.02), transparent 28%),
-      linear-gradient(180deg, #fefefe 0%, #f5f5f5 55%, #eeeeee 100%);
-    background-size: 
-      40px 40px,
-      40px 40px,
-      100% 100%,
-      100% 100%;
-    color: black; /* Black text */
+      linear-gradient(90deg, rgba(0,0,0,0.03) 1px, transparent 1px);
+    background-size: 100% 100%, 80px 80px, 80px 80px;
+    color: #111111;
+  }
+
+  /* Scrollbar styling */
+  ::-webkit-scrollbar {
+    width: 4px;
+  }
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: rgba(99, 102, 241, 0.3);
+    border-radius: 999px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgba(99, 102, 241, 0.5);
   }
 
   a {
@@ -111,12 +127,33 @@
     text-wrap: balance;
   }
 
-  .section-shell {
-    @apply mx-auto w-full max-w-6xl px-4 sm:px-6 lg:px-8;
+  /* Font utilities */
+  .font-display {
+    font-family: var(--font-display);
+  }
+  
+  .font-mono-custom {
+    font-family: var(--font-mono-custom);
   }
 
+  /* Section metadata label */
+  .section-label {
+    @apply flex items-center gap-3 font-mono-custom text-[10px] tracking-[0.3em] text-indigo-400 uppercase;
+  }
+  
+  .section-label::before {
+    content: '';
+    @apply block h-px w-8 bg-indigo-400;
+  }
+
+  /* Section shell */
+  .section-shell {
+    @apply mx-auto max-w-4xl px-6 md:px-10;
+  }
+
+  /* Section title */
   .section-title {
-    @apply text-3xl font-semibold tracking-tight md:text-4xl;
+    @apply font-display text-[clamp(28px,4vw,44px)] font-black leading-tight tracking-[-1.5px];
   }
   
   /* Dark mode section title */
@@ -129,8 +166,9 @@
     @apply text-black;
   }
 
+  /* Section copy */
   .section-copy {
-    @apply text-sm leading-7 md:text-base;
+    @apply text-base leading-8;
   }
   
   /* Dark mode section copy */
@@ -140,30 +178,32 @@
   
   /* Light mode section copy */
   html:not(.dark) .section-copy {
-    @apply text-zinc-700; /* Dark gray for better readability */
+    @apply text-zinc-700;
   }
 
+  /* Panel - fixed border color */
   .panel {
-    @apply rounded-3xl border border-white/10 bg-white/5 shadow-[0_0_0_1px_rgba(255,255,255,0.02),0_24px_80px_rgba(0,0,0,0.35)] backdrop-blur;
+    @apply relative overflow-hidden rounded-2xl border border-white/10 bg-white/5 backdrop-blur-sm;
   }
   
   /* Light mode panel */
   html:not(.dark) .panel {
-    @apply border-black/10 bg-black/5 shadow-[0_0_0_1px_rgba(0,0,0,0.02),0_24px_80px_rgba(0,0,0,0.1)];
+    @apply border-black/10 bg-black/5;
   }
 
+  /* Chip - fixed border color */
   .chip {
-    @apply inline-flex items-center rounded-full border border-white/10 bg-white/5 px-3 py-1 text-sm;
+    @apply inline-flex items-center rounded-md border border-white/10 bg-white/5 px-2.5 py-1 font-mono-custom text-xs transition-colors;
   }
   
   /* Dark mode chip */
   .dark .chip {
-    @apply text-zinc-300;
+    @apply text-zinc-400 hover:border-indigo-500/30 hover:bg-indigo-500/10 hover:text-zinc-200;
   }
   
   /* Light mode chip */
   html:not(.dark) .chip {
-    @apply border-black/10 bg-black/5 text-black;
+    @apply border-black/10 bg-black/5 text-zinc-600 hover:border-indigo-500/30 hover:bg-indigo-500/10 hover:text-zinc-900;
   }
 }
 
