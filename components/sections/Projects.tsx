@@ -6,18 +6,113 @@ import { useRef } from 'react'
 
 const projects = [
   {
-    title: 'Taeyen Workforce Platform',
-    role: 'Front-end Developer',
+    title: 'Anki Flashcards App',
+    role: 'Full Stack Developer',
     description:
-      'A workforce platform inspired by Taeyen, built to connect skilled workers locally and globally. Developed transparent job flows, profiles, and onboarding features. Focused on efficient hiring, trust, and a scalable architecture for both companies and talent.',
-    tags: ['Next.js', 'NestJS', 'TypeScript', 'GraphQL', 'Prisma', 'Tailwind CSS', 'Shadcn UI', 'Framer Motion', 'Zustand', 'MUI'],
-    liveUrl: 'https://taeyen.com',
-    githubUrl: '#',
+      'A full-stack web app inspired by Anki for studying with digital flashcards. Users can create, edit, delete cards and review them interactively. Built with Node.js, Express, MongoDB, EJS and deployed on Render.',
+    tags: ['Node.js', 'Express', 'MongoDB', 'EJS', 'JavaScript'],
+    liveUrl: 'https://anki-flashcards.onrender.com/',
+    githubUrl: 'https://github.com/absar22/Anki-FlashCards',
     status: 'Published',
     accent: 'from-indigo-400 via-violet-400 to-cyan-400',
     index: '01',
   },
-  // Add more projects here following the same shape
+  {
+    title: 'Quranic Ayah API',
+    role: 'Backend Developer',
+    description:
+      'An API that serves random Quranic ayahs in JSON format for apps and websites. Built using Node.js and Express with JSON-based storage and deployed on Render.',
+    tags: ['Node.js', 'Express', 'API', 'JSON'],
+    liveUrl: 'https://quranic-quote-api.onrender.com/',
+    githubUrl: 'https://github.com/absar22/quranic-quote-api',
+    status: 'Published',
+    accent: 'from-emerald-400 via-teal-400 to-cyan-400',
+    index: '02',
+  },
+  {
+    title: 'Halal Ingredient Analyzer',
+    role: 'Full Stack Developer',
+    description:
+      'A smart web app to check whether ingredients are Halal, Haram, or doubtful. Helps users make informed dietary decisions using ingredient analysis.',
+    tags: ['JavaScript', 'API', 'Frontend', 'MongoDB'],
+    liveUrl: 'https://halalfinderanalyzer.netlify.app/',
+    githubUrl: 'https://github.com/absar22/Halal-Finder',
+    status: 'Published',
+    accent: 'from-yellow-400 via-orange-400 to-red-400',
+    index: '03',
+  },
+  {
+    title: 'Movie Tracker',
+    role: 'Frontend Developer',
+    description:
+      'A movie watchlist app using OMDb API. Users can search movies and manage personal watchlists stored in localStorage with multi-user support.',
+    tags: ['JavaScript', 'OMDb API', 'LocalStorage'],
+    liveUrl: 'https://cinelogapp.netlify.app/',
+    githubUrl: 'https://github.com/absar22/MovieTracker',
+    status: 'Published',
+    accent: 'from-pink-400 via-rose-400 to-red-400',
+    index: '04',
+  },
+  {
+    title: 'Cat Generator',
+    role: 'Frontend Developer',
+    description:
+      'A fun app that fetches random cat images using The Cat API with async JavaScript and fetch API.',
+    tags: ['JavaScript', 'Fetch API', 'Async/Await'],
+    liveUrl: 'https://purrfect-paw.netlify.app/',
+    githubUrl: 'https://github.com/absar22/CAT-PICKER-',
+    status: 'Published',
+    accent: 'from-purple-400 via-pink-400 to-red-400',
+    index: '05',
+  },
+  {
+    title: 'Azan Finder',
+    role: 'Frontend Developer',
+    description:
+      'A web app that provides accurate daily prayer times based on city input with a clean and simple UI.',
+    tags: ['JavaScript', 'API', 'Frontend'],
+    liveUrl: 'https://azanfinder.netlify.app/',
+    githubUrl: 'https://github.com/absar22/Azan-Finder',
+    status: 'Published',
+    accent: 'from-blue-400 via-indigo-400 to-purple-400',
+    index: '06',
+  },
+  {
+    title: 'Simple Calculator',
+    role: 'Frontend Developer',
+    description:
+      'A basic calculator built with HTML, CSS, and JavaScript supporting arithmetic operations. Focused on DOM manipulation and event handling.',
+    tags: ['JavaScript', 'DOM', 'CSS'],
+    liveUrl: 'https://github.com/absar22/100devs-calculator/tree/answer',
+    githubUrl: 'https://github.com/absar22/100devs-calculator/tree/answer',
+    status: 'Published',
+    accent: 'from-gray-400 via-zinc-400 to-neutral-400',
+    index: '07',
+  },
+  {
+    title: 'Doggo App',
+    role: 'Frontend Developer',
+    description:
+      'A fun app to explore dog breeds and view random images with additional playful characteristics like likes, dislikes, and fun facts.',
+    tags: ['JavaScript', 'API', 'Frontend'],
+    liveUrl: 'https://dogooapi.netlify.app/',
+    githubUrl: 'https://github.com/absar22/doggoApp',
+    status: 'Published',
+    accent: 'from-orange-400 via-amber-400 to-yellow-400',
+    index: '08',
+  },
+  {
+    title: 'Dictionary App',
+    role: 'Frontend Developer',
+    description:
+      'An interactive dictionary app that fetches meanings, phonetics, and examples using an external API.',
+    tags: ['JavaScript', 'API', 'Frontend'],
+    liveUrl: 'https://dicitonaryapp.netlify.app/',
+    githubUrl: 'https://github.com/absar22/Dictionary-App',
+    status: 'Published',
+    accent: 'from-cyan-400 via-blue-400 to-indigo-400',
+    index: '09',
+  },
 ]
 
 export const Projects = () => {
