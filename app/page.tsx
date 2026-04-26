@@ -12,7 +12,7 @@ import { Toolbar } from "@/components/sections/Toolbar"
 export default function Home() {
   return (
     <main>
-      {/* <Header /> */}
+  
       <Hero />
       <About />
       <Experience />
